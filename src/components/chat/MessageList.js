@@ -21,7 +21,7 @@ class MessageList extends React.Component{
   render(){
     let messageNodes = this.state.messages.map((obj, i)=> {
       return(
-        <MessageRow key={i} message={obj} />
+        <MessageRow key={ i } message={ obj } />
       );
     });
     return(
