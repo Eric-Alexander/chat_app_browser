@@ -9,7 +9,7 @@ class MessageList extends React.Component{
     this.state = {
       messages: [
          "Wu Tang clams aint nothing to shuck with.",
-        'Agreed. Indoobitebly.',
+        'Agreed. I love clams.',
         'More static text',
         'Tessterrrr',
         'Who wants green eggs and JAM? OOHHHH',
