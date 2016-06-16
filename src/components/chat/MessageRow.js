@@ -1,5 +1,6 @@
 import React from 'react';
-import {ListItem} from 'material-ui/List';
+import {ListItem, Avatar} from 'material-ui';
+
 
 
 class MessageRow extends React.Component{
@@ -9,8 +10,10 @@ class MessageRow extends React.Component{
   render(){
     return(
 
-        <ListItem primaryText = {this.props.message}></ListItem>
-
+        <ListItem
+          leftAvatar={<Avatar src="http://img-ipad.appcolt.com/imgmic/9/5/956-1-trollface.jpg" />}>
+            {this.props.message}
+        </ListItem>
     );
   }
 }

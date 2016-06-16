@@ -11,7 +11,7 @@ class MessageList extends React.Component{
          "Wu Tang clams aint nothing to shuck with.",
         'Agreed. I love clams.',
         'More static text',
-        'Tessterrrr',
+        'TessterRRrr',
         'Who wants green eggs and JAM? OOHHHH',
         'I do not',
         'No Trolls. No Mercey'
@@ -21,7 +21,7 @@ class MessageList extends React.Component{
   render(){
     let messageNodes = this.state.messages.map((obj, i)=> {
       return(
-        <MessageRow key={ i } message={ obj } />
+        <MessageRow key={i} message={obj} />
       );
     });
     return(

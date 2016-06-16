@@ -16,9 +16,8 @@ const store = configureStore();
 
 render(
   <Provider store={store}>
-    <MuiThemeProvider muiTheme={ getMuiTheme() }>
-    <Router history={browserHistory} routes={routes} />
+    <MuiThemeProvider muiTheme={getMuiTheme()}>
+      <Router history={browserHistory} routes={routes} />
     </MuiThemeProvider>
-    <Router history={browserHistory} routes={routes} />
   </Provider>, document.getElementById('app')
 );
