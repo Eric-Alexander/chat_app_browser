@@ -9,7 +9,7 @@ class MessageRow extends React.Component{
   render(){
     return(
 
-        <ListItem primaryText ={this.props.message}></ListItem>
+        <ListItem primaryText = {this.props.message}></ListItem>
 
     );
   }
