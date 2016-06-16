@@ -15,7 +15,7 @@ describe('<AboutPage />', () => {
   it('should have a header with \'alt-header\' class', () => {
     const wrapper = shallow(<AboutPage />);
     const actual = wrapper.find('h2').prop('className');
-    const expected = 'alt-header';
+    const expected = 'Blueberries';
 
     expect(actual).to.equal(expected);
   });

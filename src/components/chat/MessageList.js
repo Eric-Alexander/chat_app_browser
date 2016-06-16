@@ -11,7 +11,7 @@ class MessageList extends React.Component{
          "Wu Tang clams aint nothing to shuck with.",
         'Agreed. I love clams.',
         'More static text',
-        'TessterRRrr',
+        'Tessterrr',
         'Who wants green eggs and JAM? OOHHHH',
         'I do not',
         'No Trolls. No Mercey'
@@ -26,7 +26,11 @@ class MessageList extends React.Component{
     });
     return(
 
-        <Card>
+        <Card style={{
+            flexGrow: 2,
+            marginLeft: 30,
+            marginRight: 30
+          }}>
           <List>
             {messageNodes}
           </List>

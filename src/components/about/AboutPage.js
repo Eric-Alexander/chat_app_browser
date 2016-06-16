@@ -6,7 +6,7 @@ import {Link} from 'react-router';
 const AboutPage = () => {
   return (
     <div>
-      <h2>About</h2>
+      <h2 className= "Blueberries">About</h2>
       <p>
         <Link to="/badlink">Click this bad link</Link> to see the 404 page.
       </p>
