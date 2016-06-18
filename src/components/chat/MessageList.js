@@ -8,26 +8,21 @@ class MessageList extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      messages: []
+      messages: {}
     };
     this.firebaseRef = new Firebase('https://reactchats.firebaseio.com/messages');
-    this.firebaseRef.once("value", (dataSnapshot) => {
-      let messageVal = dataSnapshot.val();
-      let messages = _(messageVal)
-      .keys()
-      .map((messageKey) => {
-        let cloned = _.clone(messageVal[messageKey]);
-        cloned.key = messageKey;
-        return cloned;
-      })
-      .value();
-      this.setState({
-        messages: messages
-      });
+    this.firebaseRef.on("child_added", (msg) => {
+      if(this.state.messages[msg.key()]){
+        return;
+      }
+      let msgVal = msg.val();
+      msgVal.key = msg.key();
+      this.state.messages[msgVal.key] = msgVal;
+      this.setState({messages: this.state.messages});
     });
   }
   render(){
-    let messageNodes = this.state.messages.map((message, i)=> {
+    let messageNodes = _.values(this.state.messages).map((message, i)=> {
       return(
         <MessageRow key={i} message={message.message} author = {message.author} pic ={message.profilePic} />
       );
