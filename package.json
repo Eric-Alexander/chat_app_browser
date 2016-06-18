@@ -25,12 +25,15 @@
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
+    "firebase": "2.2.9",
+    "lodash": "4.13.1",
     "object-assign": "4.1.0",
     "react": "15.0.2",
     "react-dom": "15.0.2",
     "react-redux": "4.4.5",
     "react-router": "2.4.0",
-    "redux": "3.5.2"
+    "redux": "3.5.2",
+    "trim": "0.0.1"
   },
   "devDependencies": {
     "babel-cli": "6.8.0",

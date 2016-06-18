@@ -1,27 +1,35 @@
 import React from 'react';
 import MessageRow from './MessageRow';
 import {Card, List} from 'material-ui';
-
+import Firebase from 'firebase';
+import _ from 'lodash';
 
 class MessageList extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      messages: [
-         "Wu Tang clams aint nothing to shuck with.",
-        'Agreed. I love clams.',
-        'More static text',
-        'Tessterrr',
-        'Who wants green eggs and JAM? OOHHHH',
-        'I do not',
-        'No Trolls. No Mercey'
-      ]
+      messages: []
     };
+    this.firebaseRef = new Firebase('https://reactchats.firebaseio.com/messages');
+    this.firebaseRef.once("value", (dataSnapshot) => {
+      let messageVal = dataSnapshot.val();
+      let messages = _(messageVal)
+      .keys()
+      .map((messageKey) => {
+        let cloned = _.clone(messageVal[messageKey]);
+        cloned.key = messageKey;
+        return cloned;
+      })
+      .value();
+      this.setState({
+        messages: messages
+      });
+    });
   }
   render(){
-    let messageNodes = this.state.messages.map((obj, i)=> {
+    let messageNodes = this.state.messages.map((message, i)=> {
       return(
-        <MessageRow key={i} message={obj} />
+        <MessageRow key={i} message={message.message} author = {message.author} pic ={message.profilePic} />
       );
     });
     return(

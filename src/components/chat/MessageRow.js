@@ -9,11 +9,15 @@ class MessageRow extends React.Component{
   }
   render(){
     return(
-
+      <div>
         <ListItem
-          leftAvatar={<Avatar src="http://img-ipad.appcolt.com/imgmic/9/5/956-1-trollface.jpg" />}>
-            {this.props.message}
+          leftAvatar={
+            <Avatar src={this.props.pic} />
+            }>
+          {this.props.author} says:
+            '{this.props.message}'
         </ListItem>
+        </div>
     );
   }
 }
